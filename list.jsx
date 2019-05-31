@@ -14,8 +14,10 @@ class List extends React.Component {
     const items = this.state.items.map((cardText, i=0) => <Item key={i++} text={cardText}/>)
     return(
       <div className="list-container">
-        <div className="list-name">
-          {this.props.name}
+        <div className="list-name-container">
+          <div className="list-name">
+            {this.props.name}
+          </div>
         </div>
         <div className="items-container">
           {items}

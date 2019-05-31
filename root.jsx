@@ -3,7 +3,7 @@ import List from './list';
 
 const Root = () => (
   <div className="root-container">
-    <h1>Todo List</h1>
+    {/* <h1>Todo List</h1> */}
     <div className="lists">
       <List name={"Alice"}/>
       <List name={"Bob"}/>

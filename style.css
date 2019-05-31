@@ -1,6 +1,7 @@
 body {
   background-color: #ECEEEE;
   margin: 0;
+  font-family: sans-serif;
 }
 
 .root-container {
@@ -18,7 +19,33 @@ body {
 
 .list-container {
   width: 25%;
+  margin-top: 25px;
   margin-right: 25px;
   border: 1px solid black;
+}
+
+.list-container:nth-child(1) > .list-name-container {
+  background: #8E6E96;
+}
+.list-container:nth-child(2) > .list-name-container {
+  background: #39A59C;
+}
+.list-container:nth-child(3) > .list-name-container {
+  background: #344759;
+}
+.list-container:nth-child(4) > .list-name-container {
+  background: #E8741E;
+}
+
+.list-name-container {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-name {
+  color: white;
+  font-weight: 700;
 }
 

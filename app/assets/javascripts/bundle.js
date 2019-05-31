@@ -230,8 +230,10 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "list-name-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-name"
-      }, this.props.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "items-container"
       }, items));
     }
@@ -24979,7 +24981,7 @@ __webpack_require__.r(__webpack_exports__);
 var Root = function Root() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "root-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Todo List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "lists"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "Alice"
