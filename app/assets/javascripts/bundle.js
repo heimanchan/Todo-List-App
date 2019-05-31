@@ -155,8 +155,10 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-text"
-      }, this.props.text);
+        className: "item-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "item-text"
+      }, this.props.text));
     }
   }]);
 
@@ -218,8 +220,16 @@ function (_React$Component) {
   }
 
   _createClass(List, [{
+    key: "addNewItem",
+    value: function addNewItem(e) {
+      var target = e.target;
+      console.log(target.innerText);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var items = this.state.items.map(function (cardText) {
         var i = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -235,7 +245,12 @@ function (_React$Component) {
         className: "list-name"
       }, this.props.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "items-container"
-      }, items));
+      }, items), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "new-item-button",
+        onClick: function onClick(e) {
+          return _this2.addNewItem(e);
+        }
+      }, "+ Add New Item"));
     }
   }]);
 

@@ -10,6 +10,11 @@ class List extends React.Component {
     }
   }
 
+  addNewItem(e) {
+    let target = e.target;
+    console.log(target.innerText)
+  }
+
   render() {
     const items = this.state.items.map((cardText, i=0) => <Item key={i++} text={cardText}/>)
     return(
@@ -22,6 +27,10 @@ class List extends React.Component {
         <div className="items-container">
           {items}
         </div>
+
+        <button className="new-item-button" onClick={e => this.addNewItem(e)}>
+          + Add New Item
+        </button>
       </div>
     )
   }

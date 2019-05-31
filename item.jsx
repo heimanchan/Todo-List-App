@@ -7,8 +7,10 @@ class Item extends React.Component {
 
   render() {
     return (
-      <div className="card-text">
-        {this.props.text}
+      <div className="item-container">
+        <div className="item-text">
+          {this.props.text}
+        </div>
       </div>
     )
   }
