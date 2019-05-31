@@ -227,7 +227,13 @@ function (_React$Component) {
           text: cardText
         });
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, items);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "list-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "list-name"
+      }, this.props.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "items-container"
+      }, items));
     }
   }]);
 
@@ -24973,7 +24979,17 @@ __webpack_require__.r(__webpack_exports__);
 var Root = function Root() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "root-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Todo List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Todo List"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "lists"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    name: "Alice"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    name: "Bob"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    name: "Charles"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    name: "Dave"
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Root);
