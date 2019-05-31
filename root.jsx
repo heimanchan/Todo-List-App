@@ -1,7 +1,12 @@
 import React from 'react';
+import List from './list';
 
 const Root = () => (
-  <h1>Test</h1>
+  <div className="root-container">
+    <h1>Todo List</h1>
+    <List />
+  </div>
 )
+
 
 export default Root;
