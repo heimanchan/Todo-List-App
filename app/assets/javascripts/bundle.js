@@ -181,6 +181,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item */ "./item.jsx");
+/* harmony import */ var reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactjs-localstorage */ "./node_modules/reactjs-localstorage/react-localstorage.js");
+/* harmony import */ var reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -210,6 +212,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var List =
 /*#__PURE__*/
 function (_React$Component) {
@@ -221,18 +224,23 @@ function (_React$Component) {
     _classCallCheck(this, List);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(List).call(this, props));
+    _this.itemsArray = Array.from(reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2__["reactLocalStorage"].getObject(_this.props.name));
     _this.state = {
-      items: ["abc", "cde"]
+      items: _toConsumableArray(_this.itemsArray)
     };
     return _this;
   }
 
   _createClass(List, [{
+    key: "getStorageItems",
+    value: function getStorageItems() {
+      return Array.from(reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2__["reactLocalStorage"].getObject(this.props.name));
+    }
+  }, {
     key: "addNewItem",
     value: function addNewItem(e) {
-      // let target = e.target;
-      // console.log(target.innerText)
       var itemText = window.prompt("What is your new item?");
+      reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2__["reactLocalStorage"].setObject(this.props.name, [].concat(_toConsumableArray(this.getStorageItems()), [itemText]));
       this.setState({
         items: [].concat(_toConsumableArray(this.state.items), [itemText])
       });
@@ -248,7 +256,9 @@ function (_React$Component) {
           key: i++,
           text: cardText
         });
-      });
+      }); // const items = reactLocalStorage.getObject(this.props.name).map((cardText, i=0) => <Item key={i++} text={cardText}/>)
+      // console.log(reactLocalStorage.getObject("Alice"))
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "list-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -23778,6 +23788,39 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/reactjs-localstorage/react-localstorage.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/reactjs-localstorage/react-localstorage.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+exports.reactLocalStorage = {
+    set: function(key, value) {
+        localStorage[key] = value;
+        return localStorage[key];
+    },
+    get: function(key, defaultValue) {
+        return localStorage[key] || defaultValue;
+    },
+    setObject: function(key, value) {
+        localStorage[key] = JSON.stringify(value);
+        return localStorage[key];
+    },
+    getObject: function(key, value) {
+        return JSON.parse(localStorage[key] || '{}');
+    },
+    clear: function() {
+        return localStorage.clear();
+    },
+    remove: function(key) {
+        return localStorage.removeItem(key);
+    }
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/scheduler/cjs/scheduler-tracing.development.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/scheduler/cjs/scheduler-tracing.development.js ***!
@@ -25002,23 +25045,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list */ "./list.jsx");
+/* harmony import */ var reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! reactjs-localstorage */ "./node_modules/reactjs-localstorage/react-localstorage.js");
+/* harmony import */ var reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(reactjs_localstorage__WEBPACK_IMPORTED_MODULE_2__);
 
 
+
+var list1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  name: "Alice"
+});
+var list2 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  name: "Bob"
+});
+var list3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  name: "Charles"
+});
+var list4 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  name: "Dave"
+});
+var storage = window.localStorage;
+storage.setItem("list1", list1); // reactLocalStorage.setObject(list1, ["abc", "cde", "123"])
+
+storage.setItem("list2", list2);
+storage.setItem("list3", list3);
+storage.setItem("list4", list4);
 
 var Root = function Root() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "root-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "lists"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "Alice"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "Bob"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "Charles"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_list__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    name: "Dave"
-  })));
+  }, list1, list2, list3, list4));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Root);
