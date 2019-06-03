@@ -11,8 +11,10 @@ class List extends React.Component {
   }
 
   addNewItem(e) {
-    let target = e.target;
-    console.log(target.innerText)
+    // let target = e.target;
+    // console.log(target.innerText)
+    const itemText = window.prompt("What is your new item?")
+    this.setState({ items: [...this.state.items, itemText] })
   }
 
   render() {
